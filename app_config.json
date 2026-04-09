@@ -1,0 +1,8 @@
+{
+    "alarm_interval_minutes": 60,
+    "overlay_opacity": 0.75,
+    "run_on_startup": true,
+    "dark_mode": false,
+    "follow_system_theme": true,
+    "theme_mode": "system"
+}

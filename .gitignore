@@ -1,0 +1,30 @@
+# IDEs
+.vscode/
+.idea/
+
+# System / Tools
+.claude/
+.gemini/
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Project Folders
+input/
+output/
+build/
+dist/
+proc/archive/
+
+# Logs
+error_log.txt
+stdout_log.txt
+syntax_error.txt
+error_output.txt
+*.log
+
+# Specific files
+Lullit_v0.4.0.spec
+*.iss

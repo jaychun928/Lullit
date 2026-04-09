@@ -1,0 +1,501 @@
+/* =========================================
+   전체 컨테이너 및 배경 디자인 (다크 모드)
+   ========================================= */
+#MainContainer {
+    background-color: #121212; /* 매트한 다크 그레이 */
+    border-radius: 14px;
+    border: none;
+    outline: none;
+}
+#MainContainer[theme="light"] {
+    background-color: #F2F2F7; /* 라이트 모드 배경 */
+}
+
+/* 모든 위젯의 기본 포커스 테두리 강제 제거 */
+* {
+    outline: none;
+}
+
+/* =========================================
+   사이드바 (Navigation) 디자인
+   ========================================= */
+#Sidebar {
+    background-color: #1C1C1E; /* 조금 더 밝은 다크 그레이 */
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05); /* 아주 연한 경계선 */
+}
+#Sidebar[theme="light"] {
+    background-color: #FFFFFF;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 앱 로고 텍스트 */
+#LogoText {
+    font-family: "Pretendard", "Segoe UI Variable", sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+#LogoText[theme="light"] {
+    color: #1C1C1E;
+}
+
+/* 프로필 위젯 */
+#ProfileWidget {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    margin: 12px;
+}
+#ProfileWidget[theme="light"] {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+#ProfileText {
+    font-family: "Pretendard", sans-serif;
+    font-size: 16px;
+    color: #8E8E93;
+    padding-bottom: 2px;
+}
+#ProfileText[theme="light"] {
+    color: #3C3C43;
+}
+
+/* =========================================
+   메뉴 버튼 (떠 있는 카드 스타일)
+   ========================================= */
+QPushButton#MenuButton {
+    font-family: "Pretendard", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    text-align: left;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 4px 12px;
+    color: #8E8E93; /* 기본 상태는 차분한 회색 */
+    background-color: transparent;
+    border: none;
+}
+QPushButton#MenuButton[theme="light"] {
+    color: #3C3C43;
+}
+
+/* Hover 상태: 배경 약간 밝아짐 */
+QPushButton#MenuButton:hover {
+    background-color: #2C2C2E;
+    color: #FFFFFF;
+}
+QPushButton#MenuButton[theme="light"]:hover {
+    background-color: #E5E5EA;
+    color: #1C1C1E;
+}
+
+/* Active/Selected 상태: Lullit Green 적용 */
+QPushButton#MenuButton:checked {
+    background-color: #33BA25; /* Lullit Deep Green */
+    color: #FFFFFF; /* 배경색이 진해졌으므로 다시 흰색 텍스트 적용 */
+    font-weight: bold;
+}
+
+/* =========================================
+   타이포그래피 및 레이아웃 요소
+   ========================================= */
+QLabel#TitleText {
+    font-family: "Pretendard", sans-serif;
+    font-weight: 800; /* Extra Bold 느낌으로 더 강조 */
+    font-size: 33px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+QLabel#SubTitleText {
+    font-family: "Pretendard", sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    color: #FFFFFF;
+}
+
+QLabel#TitleText[theme="light"], 
+QLabel#SubTitleText[theme="light"] {
+    color: #1C1C1E;
+}
+
+QLabel#BodyText {
+    font-family: "Pretendard", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #8E8E93; /* 애플 스타일 설명 텍스트 색상 */
+}
+QLabel#BodyText[theme="light"] {
+    color: #3C3C43;
+}
+
+QLabel#CaptionText {
+    font-family: "Pretendard", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #8E8E93;
+    padding: 10px 0px;
+    min-height: 55px; /* 잘림 방지를 위해 50px에서 55px로 상향 */
+}
+QLabel#CaptionText[theme="light"] {
+    color: #3C3C43;
+}
+
+/* 콘텐츠 카드 디자인 */
+QFrame#ContentCard {
+    background-color: #1C1C1E;
+    border-radius: 16px;
+    border: none;
+}
+QFrame#ContentCard[theme="light"] {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* 메인 콘텐츠 영역 및 페이지 배경 대응 */
+QStackedWidget {
+    background-color: transparent;
+}
+
+/* 개별 페이지들의 기본 배경색 강제 지정 (검은 배경 잔상 방지) */
+QStackedWidget > QWidget {
+    background-color: #121212;
+    border-top-right-radius: 14px; /* 메인 컨테이너와 일치시킴 */
+    border-bottom-right-radius: 14px;
+}
+QStackedWidget > QWidget[theme="light"] {
+    background-color: #F2F2F7;
+}
+
+/* 전역 텍스트 색상 보정 (테마 전파용) */
+QLabel[theme="light"] {
+    color: #1C1C1E;
+}
+
+/* =========================================
+   프로그레스 바 (Lullit Green 포인트)
+   ========================================= */
+QProgressBar {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px; /* 높이 16px의 절반 */
+    height: 16px;
+    text-align: center;
+}
+QProgressBar[theme="light"] {
+    background-color: #E5E5EA;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+QProgressBar::chunk {
+    background-color: #33BA25;
+    border-radius: 8px;
+}
+
+/* =========================================
+   입력 위젯 및 버튼
+   ========================================= */
+QPushButton#PrimaryBtn {
+    background-color: #33BA25;
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-family: "Pretendard", sans-serif;
+    font-weight: bold;
+    font-size: 19px;
+    border: none;
+    min-height: 48px; /* 텍스트 잘림 방지를 위해 최소 높이 확보 */
+}
+QPushButton#PrimaryBtn:hover {
+    background-color: #45D136;
+}
+QPushButton#PrimaryBtn:focus {
+    border: none;
+    outline: none;
+}
+
+/* 피드백 버튼 스타일 */
+QPushButton#FeedbackBtn {
+    font-family: "Pretendard", sans-serif;
+    font-size: 15px; 
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4); 
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 12px 20px; /* MenuButton과 동일하게 12px로 수정 */
+    margin: 4px 12px; /* MenuButton과 동일하게 수정 */
+    border-radius: 10px;
+}
+QPushButton#FeedbackBtn[theme="light"] {
+    color: rgba(0, 0, 0, 0.4);
+}
+QPushButton#FeedbackBtn:hover {
+    background-color: #33BA25; /* Lullit Green 배경 */
+    color: #FFFFFF; /* 흰색 글자 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+QPushButton#FeedbackBtn[theme="light"]:hover {
+    background-color: #33BA25;
+    color: #FFFFFF;
+}
+
+/* 앱 종료 버튼 스타일 */
+QPushButton#ExitBtn {
+    font-family: "Pretendard", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 12px 20px; /* MenuButton과 동일하게 12px로 수정 */
+    margin: 4px 12px; /* MenuButton과 동일하게 수정 */
+    border-radius: 10px; /* 피드백 버튼과 동일한 둥근 모서리 */
+}
+QPushButton#ExitBtn[theme="light"] {
+    color: rgba(0, 0, 0, 0.4);
+}
+QPushButton#ExitBtn:hover {
+    color: #FF453A;
+    background-color: rgba(255, 69, 58, 0.08); /* 조금 더 선명한 붉은색 배경 */
+    border-radius: 10px;
+}
+
+/* 법적 고지 링크 버튼 스타일 */
+QPushButton#LegalLinkBtn {
+    font-family: "Pretendard", sans-serif;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.4);
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 2px 0;
+}
+QPushButton#LegalLinkBtn[theme="light"] {
+    color: rgba(0, 0, 0, 0.4);
+}
+QPushButton#LegalLinkBtn:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500; /* Medium 수준으로 조정 */
+}
+QPushButton#LegalLinkBtn[theme="light"]:hover {
+    color: #1C1C1E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* 문서 뷰어 팝업 스타일 */
+#DocViewer {
+    background-color: #1C1C1E;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#DocViewer[theme="light"] {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#DocTitle {
+    font-family: "Pretendard", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+#DocTitle[theme="light"] {
+    color: #1C1C1E;
+}
+
+#DocContent {
+    font-family: "Pretendard", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #8E8E93;
+    background-color: transparent;
+    border: none;
+}
+#DocContent[theme="light"] {
+    color: #3C3C43;
+}
+
+/* =========================================
+   QComboBox (세련된 미니멀 드롭다운)
+   ========================================= */
+QComboBox {
+    padding: 10px 16px;
+    border-radius: 12px;
+    background-color: #2C2C2E;
+    color: #FFFFFF;
+    font-family: "Pretendard", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+QComboBox[theme="light"] {
+    background-color: #F2F2F7;
+    color: #1C1C1E;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+QComboBox:hover {
+    background-color: #3A3A3C;
+}
+
+QComboBox[theme="light"]:hover {
+    background-color: #E5E5EA;
+}
+
+/* 드롭다운 버튼(화살표 영역) */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 35px;
+    border-left: none;
+}
+
+/* 화살표 아이콘 (세련된 아래 방향 기호) */
+QComboBox::down-arrow {
+    image: none;
+    border: none;
+}
+
+/* 드롭다운이 열렸을 때의 팝업 목록 스타일 */
+QAbstractItemView {
+    background-color: #2C2C2E;
+    color: #8E8E93; /* 기본 상태: 차분한 회색 */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    selection-background-color: #2C2C2E; /* 배경색 변화 제거 */
+    selection-color: #FFFFFF;            /* 다크 모드 호버: 밝은 흰색으로 강조 */
+    outline: none;
+    padding: 8px;
+    font-family: "Pretendard", sans-serif;
+}
+
+/* 라이트 모드 팝업 목록 */
+QAbstractItemView[theme="light"] {
+    background-color: #FFFFFF !important;
+    color: #AEAEB2 !important;            /* 라이트 모드 기본: 아주 연한 회색 */
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    selection-background-color: #FFFFFF !important; /* 배경색 변화 제거 */
+    selection-color: #1C1C1E !important;            /* 라이트 모드 호버: 진한 검정색으로 강조 */
+}
+
+/* 목록 내부의 각 항목 간격 조정 */
+QComboBox QAbstractItemView::item {
+    min-height: 40px;
+    padding-left: 10px;
+    border-radius: 8px;
+    margin: 2px 0;
+}
+
+/* =========================================
+   QSpinBox 및 QSlider (새로운 설정 UI)
+   ========================================= */
+QSpinBox {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background-color: #2C2C2E;
+    color: #FFFFFF;
+    font-family: "Pretendard", sans-serif;
+    font-size: 17px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+QSpinBox[theme="light"] {
+    background-color: #E5E5EA;
+    color: #1C1C1E;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+/* 화살표 버튼 제거하여 더 깔끔하게 */
+QSpinBox::up-button, QSpinBox::down-button {
+    width: 0px;
+    height: 0px;
+    border: none;
+}
+
+QSlider::groove:horizontal {
+    border: none;
+    height: 6px;
+    background: #2C2C2E;
+    margin: 2px 0;
+    border-radius: 3px;
+}
+QSlider[theme="light"]::groove:horizontal {
+    background: #E5E5EA;
+}
+QSlider::handle:horizontal {
+    background: #33BA25;
+    border: none;
+    width: 18px;
+    height: 18px;
+    margin: -6px 0;
+    border-radius: 9px;
+}
+QSlider::add-page:horizontal {
+    background: #2C2C2E;
+    border-radius: 3px;
+}
+QSlider[theme="light"]::add-page:horizontal {
+    background: #E5E5EA;
+}
+QSlider::sub-page:horizontal {
+    background: #33BA25;
+    border-radius: 3px;
+}
+
+QCheckBox {
+    font-family: "Pretendard", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+    spacing: 12px;
+}
+QCheckBox[theme="light"] {
+    color: #1C1C1E;
+}
+QCheckBox::indicator {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background-color: #2C2C2E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+QCheckBox[theme="light"]::indicator {
+    background-color: #E5E5EA;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+QCheckBox::indicator:checked {
+    background-color: #33BA25;
+    border: 1px solid #33BA25;
+}
+QCheckBox:focus {
+    border: none;
+    outline: none;
+}
+
+/* =========================================
+   우측 상단 창 닫기 버튼 (X)
+   ========================================= */
+QPushButton#WindowCloseBtn {
+    font-size: 23px;
+    color: rgba(255, 255, 255, 0.4);
+    border: none;
+    background: transparent;
+    border-radius: 22px;
+}
+QPushButton#WindowCloseBtn[theme="light"] {
+    color: rgba(0, 0, 0, 0.4);
+}
+QPushButton#WindowCloseBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+}
+QPushButton#WindowCloseBtn[theme="light"]:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000000;
+}
